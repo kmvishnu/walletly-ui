@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar/app-sidebar"
+import { AppSidebar } from "@/components/app-sidebar/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,13 +6,13 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Separator } from "@/components/ui/separator"
+} from "@/components/ui/breadcrumb";
+import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 export default function App() {
   return (
@@ -26,9 +26,7 @@ export default function App() {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">
-                    Home
-                  </BreadcrumbLink>
+                  <BreadcrumbLink href="#">Home</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
@@ -38,15 +36,21 @@ export default function App() {
             </Breadcrumb>
           </div>
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
+        <div className="grid grid-cols-3 gap-0 h-full">
+        <div className="row-span-1 col-span-2 bg-gray-200">
+            01
           </div>
-          <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+          <div className="row-span-2 bg-gray-400">
+            02
+          </div>
+          <div className="col-span-2 row-span-3 bg-gray-500">
+            03
+          </div>
+          <div className=" row-span-2 bg-gray-600">
+           04
+          </div>
         </div>
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }

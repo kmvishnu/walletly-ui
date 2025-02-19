@@ -2,12 +2,10 @@
 
 import * as React from "react"
 import {
-  AudioWaveform,
   BookOpen,
   Bot,
-  Command,
   Frame,
-  GalleryVerticalEnd,
+  Wallet,
   Map,
   PieChart,
   Settings2,
@@ -15,7 +13,6 @@ import {
 } from "lucide-react"
 
 import { NavMain } from "@/components/navigation/nav-main"
-import { NavProjects } from "@/components/navigation/nav-projects"
 import { NavUser } from "@/components/navigation/nav-user"
 import { TeamSwitcher } from "@/components/team-switcher/team-switcher"
 import {
@@ -36,7 +33,7 @@ const data = {
   teams: [
     {
       name: "Walletly",
-      logo: GalleryVerticalEnd,
+      logo: Wallet,
       plan: "Enterprise",
     },
     // {
