@@ -18,6 +18,7 @@ import { DataTable } from "./components/dataTable/data-table";
 import { columns, ExpenseType } from "./components/dataTable/columns";
 import getData from "./constants/sampleData";
 import BarChartComponent from "./components/charts/BarChartComponent";
+import PieChartComponent from "./components/charts/PieChartComponent";
 
 
 
@@ -47,7 +48,7 @@ export default function App() {
           </div>
         </header>
         <div className="grid h-full grid-cols-10 grid-rows-5">
-          <div className="flex flex-col h-full col-span-6 row-span-1 ">
+          <div className="flex flex-col h-full col-span-6 row-span-1 bg-slate-600 ">
             <BalanceComponent />
           </div>
           <div className="row-span-2 col-span-4 bg-gray-400">
@@ -56,7 +57,9 @@ export default function App() {
           <div className="col-span-6 row-span-4 bg-white-500">
              <DataTable columns={columns} data={data} />
           </div>
-          <div className="row-span-3 col-span-4 bg-gray-600 ">04</div>
+          <div className="row-span-3 col-span-4 bg-gray-600 ">
+            <PieChartComponent/>
+          </div>
         </div>
       </SidebarInset>
     </SidebarProvider>

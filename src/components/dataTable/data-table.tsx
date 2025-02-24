@@ -69,7 +69,7 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div className="h-full">
+    <div className="h-[80%]">
       <div className="flex justify-between py-4 mx-2">
         <Input
           placeholder="Filter emails..."

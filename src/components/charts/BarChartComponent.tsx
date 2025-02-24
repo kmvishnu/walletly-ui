@@ -14,7 +14,7 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
+//   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -39,7 +39,7 @@ const filteredData = chartData.filter(item => item.desktop > 0);
 
 export default function BarChartComponent() {
   return (
-    <Card className="h-full w-full">
+    <Card className="h-full w-full rounded-none">
       <CardHeader className="p-4 pb-0">
         <div className="flex justify-between items-center">
           <div>
@@ -92,9 +92,9 @@ export default function BarChartComponent() {
           </ResponsiveContainer>
         </div>
       </CardContent>
-      <CardFooter className="p-3 pt-0 text-xs text-muted-foreground">
+      {/* <CardFooter className="p-3 pt-0 text-xs text-muted-foreground">
         <div>Total visitors: last 6 months</div>
-      </CardFooter>
+      </CardFooter> */}
     </Card>
   );
 }
