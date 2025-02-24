@@ -13,7 +13,8 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import BalanceComponent from "./components/balanceComponent/balanceComponent";
+import BalanceComponent from "./components/balanceComponent/BalanceComponent";
+
 
 export default function App() {
   return (
