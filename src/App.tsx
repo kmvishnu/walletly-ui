@@ -13,9 +13,17 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import BalanceComponent from "./components/balanceComponent/balanceComponent";
+import BalanceComponent from "./components/balanceComponent/BalanceComponent";
+import { DataTable } from "./components/dataTable/data-table";
+import { columns, Payment } from "./components/dataTable/columns";
+import getData from "./constants/sampleData";
+
+
 
 export default function App() {
+
+  const data:Payment[] = getData()
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -37,13 +45,15 @@ export default function App() {
             </Breadcrumb>
           </div>
         </header>
-        <div className="grid h-full grid-cols-3 gap-0.5">
-          <div className="flex flex-col h-full col-span-2 row-span-1 ">
+        <div className="grid h-full grid-cols-10 grid-rows-5">
+          <div className="flex flex-col h-full col-span-6 row-span-1 ">
             <BalanceComponent />
           </div>
-          <div className="row-span-2 bg-gray-400">02</div>
-          <div className="col-span-2 row-span-3 bg-gray-500">03</div>
-          <div className="row-span-2 bg-gray-600 ">04</div>
+          <div className="row-span-2 col-span-4 bg-gray-400">02</div>
+          <div className="col-span-6 row-span-4 bg-white-500">
+             <DataTable columns={columns} data={data} />
+          </div>
+          <div className="row-span-3 col-span-4 bg-gray-600 ">04</div>
         </div>
       </SidebarInset>
     </SidebarProvider>
