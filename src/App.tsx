@@ -17,6 +17,7 @@ import BalanceComponent from "./components/balanceComponent/BalanceComponent";
 import { DataTable } from "./components/dataTable/data-table";
 import { columns, ExpenseType } from "./components/dataTable/columns";
 import getData from "./constants/sampleData";
+import BarChartComponent from "./components/charts/BarChartComponent";
 
 
 
@@ -49,7 +50,9 @@ export default function App() {
           <div className="flex flex-col h-full col-span-6 row-span-1 ">
             <BalanceComponent />
           </div>
-          <div className="row-span-2 col-span-4 bg-gray-400">02</div>
+          <div className="row-span-2 col-span-4 bg-gray-400">
+            <BarChartComponent />
+          </div>
           <div className="col-span-6 row-span-4 bg-white-500">
              <DataTable columns={columns} data={data} />
           </div>
