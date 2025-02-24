@@ -15,14 +15,14 @@ import {
 } from "@/components/ui/sidebar";
 import BalanceComponent from "./components/balanceComponent/BalanceComponent";
 import { DataTable } from "./components/dataTable/data-table";
-import { columns, Payment } from "./components/dataTable/columns";
+import { columns, ExpenseType } from "./components/dataTable/columns";
 import getData from "./constants/sampleData";
 
 
 
 export default function App() {
 
-  const data:Payment[] = getData()
+  const data:ExpenseType[] = getData()
 
   return (
     <SidebarProvider>

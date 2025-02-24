@@ -1,6 +1,6 @@
-import { Payment } from "@/components/dataTable/columns";
+import { ExpenseType } from "@/components/dataTable/columns";
 
-export default function getData():Payment[]{
+export default function getData():ExpenseType[]{
     // Fetch data from your API here.
     return [
       {
