@@ -13,17 +13,8 @@ import {
   PaginationState,
 } from "@tanstack/react-table";
 
-import { Button } from "@/components/ui/button"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 import {
   Table,
@@ -33,7 +24,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Label } from "../ui/label";
+import { AddExpenseComponent } from "../dialogComponents/AddExpense";
+import { ReusableDialog } from "../dialogComponents/ReusableDialog";
+ // Import the new component
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -79,44 +72,15 @@ export function DataTable<TData, TValue>({
           }
           className="max-w-sm"
         />
-         <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Add Expense</Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Add Expense</DialogTitle>
-          <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
-          </DialogDescription>
-        </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input
-              id="name"
-              defaultValue="Pedro Duarte"
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input
-              id="username"
-              defaultValue="@peduarte"
-              className="col-span-3"
-            />
-          </div>
-        </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+        
+        {/* Using the new reusable dialog component */}
+        <ReusableDialog 
+          triggerText="Add Expense" 
+          title="Add New Expense"
+          description="Enter the details for your new expense."
+        >
+          <AddExpenseComponent />
+        </ReusableDialog>
       </div>
       <div className="rounded-md border">
         <Table>
@@ -171,7 +135,7 @@ export function DataTable<TData, TValue>({
       <div className="flex items-center justify-end space-x-2 mr-2 py-2">
         <div className="flex items-center gap-2">
           <span className="text-sm text-gray-600">
-            Page {table.getState().pagination.pageIndex + 1} of{' '}
+            Page {table.getState().pagination.pageIndex + 1} of{" "}
             {table.getPageCount()}
           </span>
           <Button
