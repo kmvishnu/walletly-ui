@@ -26,7 +26,8 @@ import {
 } from "@/components/ui/table";
 import { AddExpenseComponent } from "../dialogComponents/AddExpense";
 import { ReusableDialog } from "../dialogComponents/ReusableDialog";
- // Import the new component
+import { MonthSelectorComponent } from "../selectors/MonthSelectorComponent";
+// Import the new component
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -38,7 +39,9 @@ export function DataTable<TData, TValue>({
   data,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    []
+  );
   const [pagination, setPagination] = React.useState<PaginationState>({
     pageIndex: 0,
     pageSize: 7,
@@ -72,15 +75,20 @@ export function DataTable<TData, TValue>({
           }
           className="max-w-sm"
         />
-        
+        <div>
+          <MonthSelectorComponent />
+        </div>
+
         {/* Using the new reusable dialog component */}
-        <ReusableDialog 
-          triggerText="Add Expense" 
-          title="Add New Expense"
-          description="Enter the details for your new expense."
-        >
-          <AddExpenseComponent />
-        </ReusableDialog>
+        <div className="hidden md:block">
+          <ReusableDialog
+            triggerText="Add Expense"
+            title="Add New Expense"
+            description="Enter the details for your new expense."
+          >
+            <AddExpenseComponent />
+          </ReusableDialog>
+        </div>
       </div>
       <div className="rounded-md border">
         <Table>

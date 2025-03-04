@@ -1,13 +1,12 @@
 "use client"
 
 import * as React from "react"
-import {  Pie, PieChart, ResponsiveContainer, Cell } from "recharts"
+import { Pie, PieChart, ResponsiveContainer, Cell } from "recharts"
 
 import {
   Card,
   CardContent,
   CardDescription,
-//   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -60,15 +59,15 @@ export default function PieChartComponent() {
 
   return (
     <Card className="h-full rounded-none">
-      <CardHeader>
-        <CardTitle>Pie Chart</CardTitle>
+      <CardHeader className="pb-2">
+        <CardTitle>Expense Categories</CardTitle>
         <CardDescription>January 2025</CardDescription>
       </CardHeader>
-      <CardContent className="flex-1 pb-0  max-h-[200px]">
-        <div className="h-70">
+      <CardContent className="flex-1 p-0 h-100 md:max-h-[200px]">
+        <div className="h-full w-full">
           <ChartContainer config={chartConfig}>
             <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
+              <PieChart margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
                 <ChartTooltip
                   content={
                     <ChartTooltipContent
@@ -83,8 +82,8 @@ export default function PieChartComponent() {
                   data={chartData}
                   cx="50%"
                   cy="50%"
-                  innerRadius={60}
-                  outerRadius={80}
+                  innerRadius={50}
+                  outerRadius={70}
                   paddingAngle={2}
                   dataKey="visitors"
                   nameKey="browser"
@@ -100,7 +99,7 @@ export default function PieChartComponent() {
                   y="50%"
                   textAnchor="middle"
                   dominantBaseline="central"
-                  className="text-2xl font-bold"
+                  className="text-xl font-bold"
                 >
                   {totalVisitors.toLocaleString()}
                 </text>
@@ -118,11 +117,6 @@ export default function PieChartComponent() {
           </ChartContainer>
         </div>
       </CardContent>
-      {/* <CardFooter className="flex items-center gap-2 text-sm text-muted-foreground">
-        <TrendingUp className="h-4 w-4 text-green-500" />
-        <span>Trending up by 5.2% this month</span>
-        <span className="ml-auto">Showing total visitors for the last 6 months</span>
-      </CardFooter> */}
     </Card>
   )
 }
