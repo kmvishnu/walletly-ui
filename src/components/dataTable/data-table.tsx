@@ -26,7 +26,6 @@ import {
 } from "@/components/ui/table";
 import { AddExpenseComponent } from "../dialogComponents/AddExpense";
 import { ReusableDialog } from "../dialogComponents/ReusableDialog";
-import MonthSelectorComponent from "../selectors/MonthSelectorComponent";
 // Import the new component
 
 interface DataTableProps<TData, TValue> {
