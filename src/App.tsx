@@ -21,6 +21,7 @@ import { columns, ExpenseType } from "./components/dataTable/columns";
 import getData from "./constants/sampleData";
 import BarChartComponent from "./components/charts/BarChartComponent";
 import PieChartComponent from "./components/charts/PieChartComponent";
+import UserComponent from "./components/user/userComponent";
 
 export default function App() {
   const data: ExpenseType[] = getData();
@@ -39,16 +40,11 @@ export default function App() {
             {/* Sidebar trigger - Hidden on mobile */}
             <div className="hidden md:block">
               <SidebarTrigger className="-ml-1" />
-              <Separator orientation="vertical" className="h-4 mr-2" />
             </div>
             <Breadcrumb>
               <BreadcrumbList>
-                <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">Home</BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
+                
                 <BreadcrumbItem>
-                  <BreadcrumbPage className="hidden md:block">Dashboard</BreadcrumbPage>
                   <BreadcrumbPage className="md:hidden">
                     {activePage === "home" ? "Walletly" : "Analytics"}
                   </BreadcrumbPage>
@@ -90,30 +86,23 @@ export default function App() {
           ) : activePage === "charts" ? (
             <>
               {/* Charts Page */}
-              <div className="w-full flex flex-col mb-24">
+              <div className="w-full flex flex-col justify-around h-full mb-24">
                 <div className="w-full py-2">
                   <h3 className="text-lg font-medium px-4 mb-2">Expense Breakdown</h3>
-                  <div className="w-full h-72">
+                  <div className="w-full h-full">
                     <BarChartComponent />
                   </div>
                 </div>
                 
                 <div className="w-full py-2">
-                  <div className="w-full h-100">
+                  <div className="w-full h-full">
                     <PieChartComponent />
                   </div>
                 </div>
               </div>
             </>
           ) : (
-            // Profile page (placeholder)
-            <div className="w-full flex-grow flex items-center justify-center mb-24">
-              <div className="text-center">
-                <User size={64} className="mx-auto mb-4 text-gray-400" />
-                <h2 className="text-xl font-medium">User Profile</h2>
-                <p className="text-gray-500 mt-2">Profile page content will appear here</p>
-              </div>
-            </div>
+           <UserComponent/>
           )}
           
           {/* Bottom Navigation */}

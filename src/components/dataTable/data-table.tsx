@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/table";
 import { AddExpenseComponent } from "../dialogComponents/AddExpense";
 import { ReusableDialog } from "../dialogComponents/ReusableDialog";
-import { MonthSelectorComponent } from "../selectors/MonthSelectorComponent";
+import MonthSelectorComponent from "../selectors/MonthSelectorComponent";
 // Import the new component
 
 interface DataTableProps<TData, TValue> {
@@ -66,9 +66,9 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="h-[80%]">
-      <div className="flex justify-between py-4 mx-2">
+      <div className="flex justify-between items-center py-4 mx-2">
         <Input
-          placeholder="Filter emails..."
+          placeholder="Filter expense..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("email")?.setFilterValue(event.target.value)
