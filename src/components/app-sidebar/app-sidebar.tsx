@@ -2,14 +2,11 @@
 
 import * as React from "react"
 import {
-  BookOpen,
-  Bot,
   Frame,
   Wallet,
   Map,
   PieChart,
   Settings2,
-  SquareTerminal,
 } from "lucide-react"
 
 import { NavMain } from "@/components/navigation/nav-main"

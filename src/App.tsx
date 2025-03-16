@@ -3,12 +3,9 @@ import { AppSidebar } from "@/components/app-sidebar/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
-  BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
   SidebarProvider,
@@ -21,7 +18,7 @@ import { columns, ExpenseType } from "./components/dataTable/columns";
 import getData from "./constants/sampleData";
 import BarChartComponent from "./components/charts/BarChartComponent";
 import PieChartComponent from "./components/charts/PieChartComponent";
-import UserComponent from "./components/user/userComponent";
+import UserComponent from "./components/user/UserComponent";
 
 export default function App() {
   const data: ExpenseType[] = getData();
