@@ -18,13 +18,13 @@ const MonthSelectorComponent = () => {
   };
 
   return (
-    <div className="flex justify-center items-center p-2 bg-white rounded-md shadow-md max-w-xs mx-auto">
+    <div className="flex justify-center items-center p-2 bg-dark-blue rounded-md shadow-md max-w-xs">
       <DatePicker
         selected={selectedDate}
         onChange={handleChange}
         dateFormat="MMMM yyyy"
         showMonthYearPicker
-        className="w-full p-2 border border-gray-300 rounded-md text-center bg-gray-100 transition-colors duration-300 focus:border-blue-500"
+        className="w-[70%] p-2 border border-opacity-10 border-gray-300 rounded-md text-center text-sm bg-dark-blue text-cream-white transition-colors duration-300 focus:border-blue-500"
         placeholderText="Select Month and Year"
         maxDate={new Date()}
         renderCustomHeader={({ date, changeYear, decreaseMonth, increaseMonth, prevMonthButtonDisabled, nextMonthButtonDisabled }) => (

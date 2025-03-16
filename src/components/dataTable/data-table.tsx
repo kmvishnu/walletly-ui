@@ -66,7 +66,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="h-[80%]">
-      <div className="flex justify-between items-center py-4 mx-2">
+      <div className="flex justify-between items-center py-2 mx-2">
         <Input
           placeholder="Filter expense..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
@@ -76,11 +76,10 @@ export function DataTable<TData, TValue>({
           className="max-w-sm"
         />
         <div>
-          <MonthSelectorComponent />
         </div>
 
         {/* Using the new reusable dialog component */}
-        <div className="hidden md:block">
+        <div >
           <ReusableDialog
             triggerText="Add Expense"
             title="Add New Expense"
