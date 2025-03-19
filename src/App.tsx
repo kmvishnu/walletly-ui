@@ -11,7 +11,6 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { Home, BarChart3, User } from "lucide-react";
 import BalanceComponent from "./components/balanceComponent/BalanceComponent";
 import { DataTable } from "./components/dataTable/data-table";
 import { columns, ExpenseType } from "./components/dataTable/columns";
@@ -19,6 +18,7 @@ import getData from "./constants/sampleData";
 import BarChartComponent from "./components/charts/BarChartComponent";
 import PieChartComponent from "./components/charts/PieChartComponent";
 import UserComponent from "./components/user/UserComponent";
+import BottomNavigation from "./components/navigation/BottomNavigation";
 
 export default function App() {
   const data: ExpenseType[] = getData();
@@ -30,7 +30,7 @@ export default function App() {
       <div className="hidden md:block">
         <AppSidebar />
       </div>
-      
+
       <SidebarInset>
         <header className="flex h-12 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
           <div className="flex items-center gap-2 px-4">
@@ -40,7 +40,6 @@ export default function App() {
             </div>
             <Breadcrumb>
               <BreadcrumbList>
-                
                 <BreadcrumbItem>
                   <BreadcrumbPage className="md:hidden">
                     {activePage === "home" ? "Walletly" : "Analytics"}
@@ -50,7 +49,7 @@ export default function App() {
             </Breadcrumb>
           </div>
         </header>
-        
+
         {/* Desktop Layout */}
         <div className="hidden md:grid h-full grid-cols-10 grid-rows-5">
           <div className="flex flex-col h-full col-span-6 row-span-1 bg-slate-600">
@@ -66,7 +65,7 @@ export default function App() {
             <PieChartComponent />
           </div>
         </div>
-        
+
         {/* Mobile Layout */}
         <div className="flex flex-col h-full md:hidden">
           {activePage === "home" ? (
@@ -75,7 +74,7 @@ export default function App() {
               <div className="w-full h-[20%] bg-slate-600">
                 <BalanceComponent />
               </div>
-              
+
               <div className="w-full bg-white-500 flex-grow overflow-auto mt-2 mb-24">
                 <DataTable columns={columns} data={data} />
               </div>
@@ -85,12 +84,14 @@ export default function App() {
               {/* Charts Page */}
               <div className="w-full flex flex-col justify-around h-full mb-24">
                 <div className="w-full py-2">
-                  <h3 className="text-lg font-medium px-4 mb-2">Expense Breakdown</h3>
+                  <h3 className="text-lg font-medium px-4 mb-2">
+                    Expense Breakdown
+                  </h3>
                   <div className="w-full h-full">
                     <BarChartComponent />
                   </div>
                 </div>
-                
+
                 <div className="w-full py-2">
                   <div className="w-full h-full">
                     <PieChartComponent />
@@ -99,48 +100,14 @@ export default function App() {
               </div>
             </>
           ) : (
-           <UserComponent/>
+            <UserComponent />
           )}
-          
+
           {/* Bottom Navigation */}
-          <div className="w-[95%] h-16 bg-dark-blue flex justify-around items-center fixed bottom-0 rounded-full px-5 mb-5 mx-3">
-            <button 
-              className="flex flex-col items-center justify-center p-2"
-              onClick={() => setActivePage("home")}
-            >
-              <Home 
-                size={24} 
-                className={`${activePage === "home" ? "text-white" : "text-gray-400"}`}
-              />
-              <span className={`text-xs mt-1 ${activePage === "home" ? "text-white" : "text-gray-400"}`}>
-                Home
-              </span>
-            </button>
-            <button 
-              className="flex flex-col items-center justify-center p-2"
-              onClick={() => setActivePage("charts")}
-            >
-              <BarChart3 
-                size={24} 
-                className={`${activePage === "charts" ? "text-white" : "text-gray-400"}`}
-              />
-              <span className={`text-xs mt-1 ${activePage === "charts" ? "text-white" : "text-gray-400"}`}>
-                Charts
-              </span>
-            </button>
-            <button 
-              className="flex flex-col items-center justify-center p-2"
-              onClick={() => setActivePage("profile")}
-            >
-              <User 
-                size={24} 
-                className={`${activePage === "profile" ? "text-white" : "text-gray-400"}`}
-              />
-              <span className={`text-xs mt-1 ${activePage === "profile" ? "text-white" : "text-gray-400"}`}>
-                Profile
-              </span>
-            </button>
-          </div>
+          <BottomNavigation
+            activePage={activePage}
+            setActivePage={setActivePage}
+          />
         </div>
       </SidebarInset>
     </SidebarProvider>

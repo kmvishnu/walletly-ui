@@ -24,7 +24,7 @@ const MonthSelectorComponent = () => {
         onChange={handleChange}
         dateFormat="MMMM yyyy"
         showMonthYearPicker
-        className="w-[70%] p-2 border border-opacity-10 border-gray-300 rounded-md text-center text-sm bg-dark-blue text-cream-white transition-colors duration-300 focus:border-blue-500"
+        className="w-[65%] p-1 border border-opacity-10 border-gray-300 rounded-md text-center text-sm bg-dark-blue text-cream-white transition-colors duration-300 focus:border-blue-500"
         placeholderText="Select Month and Year"
         maxDate={new Date()}
         renderCustomHeader={({ date, changeYear, decreaseMonth, increaseMonth, prevMonthButtonDisabled, nextMonthButtonDisabled }) => (
